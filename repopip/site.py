@@ -22,5 +22,6 @@ def contacto():
 
 @bp.route('/packages')
 def packages():
+    repo.loadPackages()
     packages = repo.packages
     return render_template('pages/packages.html.j2', packages = packages, total = len(packages), size = repo.size)
