@@ -24,6 +24,7 @@ class Repo(object):
     __instance = None
     packages: {str: Package} = {}
     size: int = 0
+    total_versions: int = 0
 
     def __init__(self):
         self.loadPackages()
@@ -43,16 +44,19 @@ class Repo(object):
     def loadPackages(self):
         self.packages = {}
         self.size = 0
+        self.total_versions = 0
 
         for pkg in SIMPLE_PATH.iterdir():
             name = self.getName(pkg) #Nombre de la clave del diccionario
             version = self.toVersion(pkg)
             if ( name not in self.packages.keys() ):
                 self.size += version.size
+                self.total_versions += 1
                 self.packages[name] = Package(name, [version, ])
             else: 
                 if( version.v not in [v.v for v in self.packages[name].versions] ):
                     self.size += version.size
+                    self.total_versions += 1
                     self.packages[name].versions.append(version)
 
     def getPackage(self, name):

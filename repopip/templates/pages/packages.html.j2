@@ -6,10 +6,11 @@
 
         <div class="message">
             <div class="stats">
-                <p>Total de paquetes: <span>{{total}}</span></p>
+                <p>Total de paquetes: <span>{{total[0]}}</span></p>
+                <p>Total de versiones: <span>{{total[1]}}</span></p>
                 <p>Tamaño del repositorio: <span>{{size | filesize}}</span></p>
             </div>
-            <button class="btn">Actualizar</button>
+            <button class="btn" onclick="javascript:window.location.reload(true)" >Actualizar</button>
         </div>
 
         <table class="table-centered">
@@ -45,5 +46,42 @@
         </table>
 
     </div>
+
+    {% if data_pages %}        
+    <div class="pagination">
+
+        <a href="{{ url_for('site.packages') }}?page=1"><<</a>
+
+        {% if data_pages.get('current') > 2 %}
+        <span> ... </span>
+        {% endif %}
+
+        {% if data_pages.get('current') > 1 %}
+            <a href="{{ url_for('site.packages') }}?page={{data_pages.get('current')-1}}">{{data_pages.get('current')-1}}</a> 
+        {% endif %}
+
+        <a href="{{ url_for('site.packages') }}?page={{data_pages.get('current')}}">{{data_pages.get('current')}}</a>
+
+        {% if data_pages.get('current') < data_pages.get('total_pages') %}
+            <a href="{{ url_for('site.packages') }}?page={{data_pages.get('current')+1}}">{{data_pages.get('current')+1}}</a>
+        {% endif %}
+
+        {% if data_pages.get('current') < data_pages.get('total_pages')-1 %}
+        <span> ... </span>
+        {% endif %}
+
+        <a href="{{ url_for('site.packages') }}?page={{data_pages.get('total_pages')}}">>></a>
+
+    </div>
+
+    <div class="view_all">
+        <a href="{{ url_for('site.packages') }}?all=true">Ver Todos</a>
+    </div>
+    {% else %}
+        <div class="view_all">
+            <a href="{{ url_for('site.packages') }}?page=1">P&aacute;ginas</a>
+        </div>
+    {% endif %}
+
 
 {% endblock content %}

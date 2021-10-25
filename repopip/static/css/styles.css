@@ -9,6 +9,14 @@
 .color { color: #5f686d; }
 .color { color: #f8f4f5; }
 
+@font-face {
+    font-family: "Monserrat";
+    src: url('../fonts/Montserrat-Regular.ttf');
+}
+
+* {
+    font-family: "Monserrat", sans-serif;
+}
 
 body {
     margin: 0;
@@ -28,13 +36,13 @@ header .intro{
 
 header .intro h2 {
     color: white;
-    font-size: 2.5rem;
+    font-size: 2rem;
     margin: 18px 0 10px 10px;
 }
 
 header .intro p {
     color: white;
-    font-size: 1.1rem;
+    font-size: 0.8rem;
     margin: 15px 0 20px 90px;
 }
 
@@ -60,7 +68,7 @@ nav ul {
 nav ul li {
     list-style: none;
     display: inline-block;
-    font-size: 1.1rem;
+    font-size: 1rem;
     border-right: 1px solid #80808069;
 }
 
@@ -100,14 +108,14 @@ nav a {
 
 .console .path{
     color: green;
-    font-size: 1.1rem;
+    font-size: 1rem;
     margin: 5px 0 8px 12px;    
 }
 
 .console .comand {
     color: white;
     margin: 0 0 8px 36px;
-    font-size: 1rem;
+    font-size: 0.9rem;
 }
 
 .explanation {
@@ -120,8 +128,8 @@ nav a {
 .explanation h3{
     color: #ffde63;
     margin-left: 20px;
-    font-weight: bold;
-    font-size: 1.3rem;
+    font-weight: normal;
+    font-size: 1rem;
 }
 
 .explanation p{
@@ -129,6 +137,7 @@ nav a {
     margin-left: 20px;
     width: 90%;
     line-height: 1.3rem;
+    font-size: 0.9rem;
 }
 
 .characteristics {
@@ -147,7 +156,7 @@ nav a {
 }
 
 .characteristic .title{
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: lighter;
     margin: 15px;
 }
@@ -156,6 +165,7 @@ nav a {
     margin: 0 15px;
     font-weight: 500;
     color: #5f686d;
+    font-size: 0.9rem;
 }
 
 .guide {
@@ -165,23 +175,21 @@ nav a {
 
 .guide-title {
     color: #5f686d;
-    font-size: 2.2rem;
+    font-size: 1.8rem;
     font-weight: bold;
 }
 
 .guide-subtitle {
     color: #3775a8;   
-    font-size: 1.5rem;
+    font-size: 1.2rem;
 }
 
 .guide p {
     color: #5f686d;
-    font-size: 1.1rem;
     line-height: 1.6rem;
 }
 
 .guide #steps {
-    font-size: 1.1rem;
     color: #5f686d;
 }
 
@@ -200,6 +208,7 @@ nav a {
     margin-top: 30px;
     background-color: #1f2933;
     padding: 12px 18px;
+    font-size: 0.9rem;
 }
 
 .config .scope {
@@ -210,13 +219,6 @@ nav a {
 .config .conf {
     margin: 0;
     color: #f8f4f5;
-}
-
-.footer-links{
-    margin-top: 50px;
-    display: flex;
-    justify-content: center;
-    background-color: #e7e8ea;
 }
 
 .section {
@@ -250,6 +252,7 @@ nav a {
 
 table {
     border-collapse: collapse;
+    font-size: 0.9rem;
 }
 
 table.table-centered {
@@ -292,6 +295,29 @@ div.message .stats p{
     margin-left: 30px;
 }
 
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.9rem;
+}
+
+.pagination a {
+    padding: 10px 15px;
+    text-decoration: none;
+    border: 1px solid #ddd;
+    color: black;
+    margin: 10px;
+}
+.view_all{
+    display: flex;
+    justify-content: center;
+}
+
+.view_all a {
+    font-size: 0.9rem;
+}
+
 .btn {
     border-radius: 0.3rem;
     border: 1px solid #dca900;
@@ -300,10 +326,25 @@ div.message .stats p{
     cursor: pointer;
 }
 
-.btn:hover, .btn:active {
+.btn:hover {
     background: #e7e8ea;
+}
+
+.btn:active {
+    background: linear-gradient(#d9d9d9 10%, #cccccc 90%);
 }
 
 .btn:focus {
     outline: none;
+}
+
+.footer-links{
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    background-color: #e7e8ea;
+}
+
+footer {
+    font-size: 0.9rem;
 }
