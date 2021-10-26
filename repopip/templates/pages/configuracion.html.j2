@@ -3,10 +3,66 @@
 {% block content %}
 <div class="container">
 
+    <div class="prop">
+        <div class="prop-title">
+            <h3>Exito</h3>
+        </div>
+        <p class="prop-message">Tarea realizada OK</p>
+    </div>
+
+    <div class="backdrop"></div>
+
+    {% if configs %}
+        <div class="message message-y">
+            <p>Configuraciones aplicadas:</p>
+            <ul>
+                {% for conf in configs %}
+                    <li><strong>{{conf[0]}}</strong>: {{conf[1]}}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+
     <div class="guide">
         <h2 class="guide-title">Configuraci&oacute;n</h2>
-        <p>Aqui se realizan las configuraciones de pip de forma automatica</p>
-
+        <p>Aqui se realizan las configuraciones de pip de forma automatica. Seleccione a que nivel desea configurar pip y la configuraci&oacute;n que desea aplicar:</p>
     </div>
+
+    <div class="conf-blocks">
+        <div class="block" id="Global">
+            <h3 class="block-title">Global</h3>
+            <p class="conf-description"> Configura pip globalmente creando el archivo ubicado en <strong>C:\ProgramData\pip\pip.ini</strong> y le añade las lineas siguientes</p>
+        </div>
+        <div class="block" id="User">
+            <h3 class="block-title">Usuario</h3>
+            <p class="conf-description"> Configura pip creando el archivo ubicado en <strong>%HOME%\pip\pip.ini</strong> y le añade las lineas siguientes</p>
+        </div>
+        <div class="block" id="Env">
+            <h3 class="block-title">Entorno virtual</h3>
+            <p class="conf-description"> Configura pip creando el archivo ubicado en <strong>%VIRTUAL_ENV%\pip.ini</strong> debe seleccionar la ubicaion del entorno virtual y le añade las lineas siguientes</p>
+        </div>
+    </div>
+
+    <div class="edit-config">
+        <div class="select" id="standar">
+            <p>Configuraci&oacute;n estandar</p>
+        </div>
+        <div class="select" id="personalised">
+            <p>Configuraci&oacute;n personalizada</p>
+            <form id="conf-form" class="collapse">
+                <textarea name="conf" rows="6" spellcheck="false">[global] 
+index-url=http://127.0.0.1:5000/simple/</textarea>
+            </form>
+        </div>
+    </div>
+
 </div>
+
+<div class="conf-actions">
+    <button class="btn btn-blue" id="Aplicar">Aplicar</button>
+    <button class="btn btn-red">Cancelar</button>
+</div>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
 {% endblock content %}

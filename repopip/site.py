@@ -5,6 +5,7 @@ from flask import (
 )
 
 from repopip.local_repo.repo import Repo
+from repopip.local_repo.configurator import Configurator
 
 repo = Repo()
 
@@ -48,6 +49,20 @@ def packages():
     return render_template('pages/packages.html.j2', packages = slice_packages, total = total, size = repo.size, data_pages = data_pages)
 
 
-@bp.route('/config')
+@bp.route('/config', methods=['GET', 'POST'])
 def configuracion():
-    return render_template('pages/configuracion.html.j2')
+    if(request.method == "POST"):
+        try:
+            if(request.json.get('config') == 'standar'):
+                c = Configurator(request.json.get('level'))
+            else:
+                c = Configurator(request.json.get('level'), request.json.get('config'))
+
+            c.config()
+            return { 'result':True }
+        except:
+            return { 'result':False }
+    else:
+        configs = Configurator().searchConfigs()        
+
+        return render_template('pages/configuracion.html.j2', configs = configs)
