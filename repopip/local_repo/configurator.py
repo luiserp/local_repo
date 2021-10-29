@@ -23,8 +23,8 @@ class Configurator:
         self.level = level
         self.configuration = configuration 
         if(level != ''):
-            self.PATH = Path(*self.OS.get(level)).absolute()            
             try:
+                self.PATH = Path(*self.OS.get(level)).absolute()            
                 os.makedirs(self.PATH)
             except OSError:
                 pass

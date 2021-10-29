@@ -14,7 +14,8 @@ setup(
     install_requires=[
         'flask',
         'hurry.filesize',
-        'python-dotenv',
-        'pip'
+        'paste',
+        'pip',
+        'waitress'
     ],
 )
