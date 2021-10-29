@@ -66,3 +66,11 @@ def configuracion():
         configs = Configurator().searchConfigs()        
 
         return render_template('pages/configuracion.html.j2', configs = configs)
+
+@bp.route('/get-configs', methods=['GET', 'POST'])
+def getConfigs():
+    try:
+        configs = Configurator().searchConfigs()
+        return { 'error': False, 'configs': configs }
+    except Exception:
+        return { 'error' : True }

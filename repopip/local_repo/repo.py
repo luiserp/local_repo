@@ -54,15 +54,18 @@ class Repo(object):
                 self.total_versions += 1
                 self.packages[name] = Package(name, [version, ])
             else: 
-                if( version.v not in [v.v for v in self.packages[name].versions] ):
-                    self.size += version.size
-                    self.total_versions += 1
-                    self.packages[name].versions.append(version)
+                # if( version.v not in [v.v for v in self.packages[name].versions] ):
+                self.size += version.size
+                self.total_versions += 1
+                self.packages[name].versions.append(version)
 
     def getPackage(self, name):
-        if ( name not in self.packages.keys() ):
-            name = name.replace(".","-")
+        try:
             if ( name not in self.packages.keys() ):
-                name = name.replace("-","_")
+                name = name.replace(".","-")
+                if ( name not in self.packages.keys() ):
+                    name = name.replace("-","_")
 
-        return self.packages[name].versions
+            return self.packages[name].versions
+        except:
+            return []

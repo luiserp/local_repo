@@ -23,7 +23,7 @@ class Configurator:
         self.level = level
         self.configuration = configuration 
         if(level != ''):
-            self.PATH = Path(*self.OS.get(level))            
+            self.PATH = Path(*self.OS.get(level)).absolute()            
             try:
                 os.makedirs(self.PATH)
             except OSError:
@@ -47,5 +47,5 @@ class Configurator:
         for l, p in self.OS.items():
             path = Path(*p)
             if( path.joinpath(self.OS.get('File')).exists() and os.path.getsize(path.joinpath(self.OS.get('File'))) != 0 ):
-                configs.append((l, path))
+                configs.append((l, path.__str__()))
         return configs

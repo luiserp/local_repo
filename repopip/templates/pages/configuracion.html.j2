@@ -12,20 +12,17 @@
 
     <div class="backdrop"></div>
 
-    {% if configs %}
-        <div class="message message-y">
-            <p>Configuraciones aplicadas:</p>
-            <ul>
-                {% for conf in configs %}
-                    <li><strong>{{conf[0]}}</strong>: {{conf[1]}}</li>
-                {% endfor %}
-            </ul>
-        </div>
-    {% endif %}
+    <div class="message message-y" id="configs" style="display: none;">
+        <p>Configuraciones aplicadas:</p>
+        <ul>
+            <!-- <li id="conf[0]"><strong>conf[0]</strong>: conf[1]</li> -->
+        </ul>
+    </div>
 
     <div class="guide">
         <h2 class="guide-title">Configuraci&oacute;n</h2>
-        <p>Aqui se realizan las configuraciones de pip de forma automatica. Seleccione a que nivel desea configurar pip y la configuraci&oacute;n que desea aplicar:</p>
+        <p>Esta opci&oacute;n est&aacute; en fase de pruebas, adem&aacute; se implemento solo para windows, la funcionalidad de linux llegará pronto. A continuación debe seleccionar a que nivel desea configurar pip y especificar la configuración(<strong>precaución</strong>, esto sobrescribirá las configuraciones previas).</p>
+        <p>Si desea eliminar una configuración seleccione el nivel y cambiela a estandar.</p>
     </div>
 
     <div class="conf-blocks">
@@ -59,8 +56,8 @@ index-url=http://127.0.0.1:5000/simple/</textarea>
 </div>
 
 <div class="conf-actions">
-    <button class="btn btn-blue" id="Aplicar">Aplicar</button>
-    <button class="btn btn-red">Cancelar</button>
+    <button class="btn btn-blue" id="Apply">Aplicar</button>
+    <button class="btn btn-red" id="Cancel">Cancelar</button>
 </div>
 
 <script src="{{ url_for('static', filename='js/script.js') }}"></script>

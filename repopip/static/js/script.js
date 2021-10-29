@@ -1,14 +1,18 @@
+var acept_button = document.querySelector('button#Apply')
+var cancel_button = document.querySelector('button#Cancel')
+var form = document.querySelector('#conf-form');
+var configs_div = document.querySelector('#configs');
 var blocks = document.querySelectorAll('.block');
 var configs = document.querySelectorAll('.edit-config .select');
-var acept_button = document.querySelector('button#Aplicar')
-var form = document.querySelector('#conf-form');
-var message = document.querySelector('.message p');
 var backdrop = document.querySelector('.backdrop');
 var prop = document.querySelector('.prop');
 
-
 let selected_block;
 let selected_config;
+
+document.addEventListener('DOMContentLoaded', function() {
+    loadConfigs();
+});
 
 for (let i = 0; i < blocks.length; i++) {
     blocks[i].addEventListener('click', function(){
@@ -40,7 +44,7 @@ acept_button.addEventListener('click', async function(){
         error.push(`Debe seleccionar una configuraci&oacute;n`)
     }
     if(error != '') {
-        showMessage({ title: 'Ha ocurrido un error', message:error }, false);
+        showMessage({ title: 'Seleccione los parametros', message:error }, false);
         return
     }
     data = {
@@ -50,12 +54,16 @@ acept_button.addEventListener('click', async function(){
     let { result } = await SetConfig(data)
     if(result) {
         showMessage({ title:'Configuraci&oacute;n aplicada', message: [`La configuraci&oacute;n a nivel '${selected_block}' se aplic&oacute; correctamente`] });
+        await loadConfigs();
+        resetButtonStatus();
     }else{
         showMessage({ title:'Ha ocurrido un error', message: [`No se ha podido establecer la configuraci&oacute;n`] }, false);
     }
-
-
 });
+
+cancel_button.addEventListener('click', function() {
+    resetButtonStatus();
+})
 
 backdrop.addEventListener('click', function() {
     prop.classList.remove('open')
@@ -64,8 +72,26 @@ backdrop.addEventListener('click', function() {
         prop.style.display = 'none'
         backdrop.style.display = 'none'
     }, 400);
-    window.location.reload();
 });
+
+async function loadConfigs (){
+    resp = await getConfigs();
+    if(resp['error']){
+        return
+    }
+    if(resp['configs'].length != 0){
+        configs_div.style.display = 'block'
+        var ul = configs_div.querySelector('ul');
+        ul.innerHTML = ''
+        for( c of resp['configs']){
+            let li = document.createElement('li')
+            li.innerHTML = `<strong>${c[0]}</strong>: ${c[1]}`
+            ul.appendChild(li)
+        }
+    }else{
+        configs_div.style.display = 'none'
+    }
+}
 
 function showMessage( {title, message}, success = true ){
     prop.querySelector('.prop-message').innerHTML = '';
@@ -80,8 +106,7 @@ function showMessage( {title, message}, success = true ){
         p.innerHTML = m
         prop.querySelector('.prop-message').appendChild(p);
     }
-
-
+    // Para cargar la animacion hay q cambiar el display y un instante despues añadir la clase.
     prop.style.display = 'block'
     backdrop.style.display = 'block'
     setTimeout(() => {
@@ -99,5 +124,22 @@ async function SetConfig(data){
         body: JSON.stringify(data)
     })
     return resp.json();
+}
 
+async function getConfigs(){
+    const resp = await fetch('/get-configs');
+    return resp.json();
+}
+
+function resetButtonStatus() {
+    for (let i = 0; i < blocks.length; i++) {
+        blocks[i].classList.remove('active');
+    }
+    for (let i = 0; i < configs.length; i++) {
+        configs[i].classList.remove('active');
+    }
+    form.parentElement.classList.remove('expand');
+
+    selected_block = null
+    selected_config = null
 }
