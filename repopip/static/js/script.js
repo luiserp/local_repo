@@ -50,14 +50,18 @@ acept_button.addEventListener('click', async function(){
     data = {
         'level': selected_block,
     }
-    data['config'] = selected_config == 'standar' ? selected_config : form['conf'].value;
-    let { result } = await SetConfig(data)
-    if(result) {
-        showMessage({ title:'Configuraci&oacute;n aplicada', message: [`La configuraci&oacute;n a nivel '${selected_block}' se aplic&oacute; correctamente`] });
-        await loadConfigs();
-        resetButtonStatus();
-    }else{
-        showMessage({ title:'Ha ocurrido un error', message: [`No se ha podido establecer la configuraci&oacute;n`] }, false);
+    try {
+        data['config'] = selected_config == 'standar' ? selected_config : form['conf'].value;
+        let { result } = await SetConfig(data)
+        if(result) {
+            showMessage({ title:'Configuraci&oacute;n aplicada', message: [`La configuraci&oacute;n a nivel '${selected_block}' se aplic&oacute; correctamente`] });
+            await loadConfigs();
+            resetButtonStatus();
+        }else{
+            showMessage({ title:'Ha ocurrido un error', message: [`No se ha podido establecer la configuraci&oacute;n`] }, false);
+        }
+    } catch (error) {
+        showMessage({ title:'Error de conexi&oacute;n', message: [`No se ha podido contactar con el servidor`] }, false);
     }
 });
 
