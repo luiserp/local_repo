@@ -2,9 +2,11 @@
 
 <nav class="nav">
     <ul>
-        <li> <a href=" {{ url_for('site.index') }}"> Inicio </a></li>
-        <li> <a href=" {{ url_for('site.packages') }}"> Paquetes </a></li>
-        <li> <a href=" {{ url_for('site.configuracion') }}"> Configuraci&oacute;n </a></li>
-        <li> <a href=" {{ url_for('site.contacto') }}"> Contacto </a></li>
+        <li> <a href=" {{ url_for('site.index') }}"> {{ home }} </a></li>
+        <li> <a href=" {{ url_for('site.packages') }}"> {{ packages }} </a></li>
+        <li> <a href=" {{ url_for('site.configuracion') }}"> {{ configuration }} </a></li>
+        <li> <a href=" {{ url_for('site.contacto') }}"> {{ contact }} </a></li>
+        <li> <a href="{{ url_for('site.index') }}">{{ english }}</a></li>
+        <li> <a href="{{ url_for('site.index', lang = 'es') }}">{{ spanish }}</a></li>
     </ul>
 </nav>

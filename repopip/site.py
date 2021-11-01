@@ -6,14 +6,21 @@ from flask import (
 
 from repopip.local_repo.repo import Repo
 from repopip.local_repo.configurator import Configurator
+from repopip.translations.translator import Translator
 
 repo = Repo()
+translator = Translator()
+translations = translator.translations
+app_lang = 'en'
 
 bp = Blueprint('site', __name__)
 
 @bp.route('/')
-def index():
-    return render_template('pages/index.html.j2', terminal = True)
+@bp.route('/<lang>')
+def index(lang = app_lang):
+    if(lang not in translator.translations):
+        lang = app_lang
+    return render_template('pages/index.html.j2', **translations[lang]['nav'], **translations[lang]['index'],terminal = True)
 
 
 @bp.route('/contact')

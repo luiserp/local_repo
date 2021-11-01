@@ -1,4 +1,4 @@
-from flask import Flask, render_template, send_from_directory
+from flask import Flask, render_template, send_from_directory, session
 import os
 
 from repopip.util import filesize
@@ -13,7 +13,7 @@ def create_app():
         SECRET_KEY='dev',
         # DATABASE=os.path.join(app.instance_path, 'repopip.sqlite'),
     )
-    
+
     app.add_template_filter(filesize)
     
     app.register_blueprint(site.bp)

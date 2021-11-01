@@ -1,0 +1,40 @@
+{
+    "nav":{
+        "english": "English",
+        "spanish": "Spanish",
+        "home": "Home",
+        "packages": "Packages",
+        "configuration" : "Configuration",
+        "contact" : "Contact",
+        "console_title": "The simplest way to use",
+        "console_desc": "The above command is the easiest and fastest way to use the local repository when installing packages, the only requirement is to download the package previously and add it to the repository."
+    },
+
+    "index":{
+        "charact_1": "Easy to use",
+        "charact_2": "Multi platform",
+        "charact_3": "Configurable",
+        "charact_4": "Work offline",
+
+        "des_char_1": "Having a package repository on your computer has never been easier. This is the easiest and simplest way to host your preferred packages and have them available to work with.",
+        "des_char_2": "Application suitable for all operating systems. The installation process only requires python and some packages to run, since all this is cross-platform, the application inherits the same behavior.",
+        "des_char_3": "The flexibility in configuration derives from the flexibility of the pip package manager. In future versions of the project we plan to implement functionalities that allow an automatic configuration.",
+        "des_char_4": "Once you have the repository configured and the packages added, nothing prevents you from being able to work offline. If you still need an internet connection to work, using this app will allow you to save bandwidth and mobile data.",
+        
+        "guide-title": "Guía de uso",
+        "guide-desc": "Con esta aplicación puedes tener un repositorio local de paquetes de python. Todo lo que tienes que hacer es descargar el paquete que desees e iniciar el servidor, así ahorraras ancho de banda y datos de internet.",
+        "installation": "Instalacíon:",
+        "use": "Uso:",
+        "step_1": "Tienes que descargar el paquete del repositorio oficial <span class='code'>pip download [package_name]</span>.",
+        "step_2": "Copia el paquete a la carpeta <strong>%HOME%/.static/simple</strong>.",
+        "step_3": "Inicia el servidor <span class='code'>python -m repopip</span>. Este comando iniciara el servidor en <a href='http://127.0.0.1:5000/'>http://127.0.0.1:5000/</a>.",
+        "step_4": "Comienza a usar tu servidor. <span class='code'>pip install --index-url='http://127.0.0.1:5000/simple/' [package_name]</span>.",
+        "step_4_1": "Puedes configurar pip copiado las siguientes lineas en una de estas ubicaciones y el paso anterior seria tan simlpe como <span class='code'>pip install [package_name]</span>:",
+        "step_4_1_1": "<strong>Global:</strong> C:\\ProgramData\\pip\\pip.ini",
+        "step_4_1_2": "<strong>User:</strong> %APPDATA%\\pip\\pip.ini o con la opcion antigua %HOME%\\pip\\pip.ini",
+        "step_4_1_3": "<strong>Site:</strong> %VIRTUAL_ENV%\/pip.ini",
+        "step_5": "También se puede usar remmotamente, solo necesitas saber la dirección donde esta alojado el servidor <span class='code'>pip install --index-url=\"http://direccion_de_dominio_o_ip/simple/\" [package_name]</span> además de poderse configurar como el paso anterior",
+        "step_5_1": "En futuras versiones haremos el proceso de configuración más facil."
+
+    }
+}
