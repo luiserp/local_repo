@@ -38,13 +38,13 @@ for (let i = 0; i < configs.length; i++) {
 acept_button.addEventListener('click', async function(){
     let error = [];
     if( selected_block == null ){
-        error.push(`Debe seleccionar un nivel`)
+        error.push(`You must select a level`)
     }
     if ( selected_config == null ) {
-        error.push(`Debe seleccionar una configuraci&oacute;n`)
+        error.push(`You must select a configuration`)
     }
     if(error != '') {
-        showMessage({ title: 'Seleccione los parametros', message:error }, false);
+        showMessage({ title: 'You must select the parameters', message:error }, false);
         return
     }
     data = {
@@ -54,14 +54,14 @@ acept_button.addEventListener('click', async function(){
         data['config'] = selected_config == 'standar' ? selected_config : form['conf'].value;
         let { result } = await SetConfig(data)
         if(result) {
-            showMessage({ title:'Configuraci&oacute;n aplicada', message: [`La configuraci&oacute;n a nivel '${selected_block}' se aplic&oacute; correctamente`] });
+            showMessage({ title:'Settings applied correctly', message: [`The configuration at the level '${selected_block}' was applied correctly`] });
             await loadConfigs();
             resetButtonStatus();
         }else{
-            showMessage({ title:'Ha ocurrido un error', message: [`No se ha podido establecer la configuraci&oacute;n`] }, false);
+            showMessage({ title:'An error has occurred', message: [`Configuration could not be set`] }, false);
         }
     } catch (error) {
-        showMessage({ title:'Error de conexi&oacute;n', message: [`No se ha podido contactar con el servidor`] }, false);
+        showMessage({ title:'Connection error', message: [`Could not contact the server`] }, false);
     }
 });
 

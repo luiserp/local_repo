@@ -6,6 +6,22 @@
         "packages": "Paquetes",
         "configuration" : "Configuración",
         "contact" : "Contacto",
+        "index_link": { 
+            "path":"site.index",
+            "lang": "es"
+        },
+        "packages_link": { 
+            "path":"site.packages",
+            "lang": "es"
+        },
+        "contact_link": { 
+            "path":"site.contact",
+            "lang": "es"
+        },
+        "configuration_link": { 
+            "path":"site.configuration",
+            "lang": "es"
+        },
         "console_title": "La forma más simple de usar",
         "console_desc": "El comando anterior es la forma mas facil y rápida de usar el repositorio local en la instalacion de paquetes, el unico requisito es descargar el paquete previamente y añadirlo al repositorio."
     },
@@ -36,5 +52,50 @@
         "step_5": "También se puede usar remmotamente, solo necesitas saber la dirección donde esta alojado el servidor <span class='code'>pip install --index-url=\"http://direccion_de_dominio_o_ip/simple/\" [package_name]</span> además de poderse configurar como el paso anterior",
         "step_5_1": "En futuras versiones haremos el proceso de configuración más facil."
 
+    },
+    "contact": {
+        "contact": "Contacto",
+        "mesagge": "La aplicacion esta todavia en una fase de desarrollo, si te gusta la idea y quieres colaborar no dudes en visitar el repositorio <a href=\"https://github.com/luiserp/local_repo\">oficial</a>, hacer un fork y desatar tu imaginación."
+    },
+
+    "packages": {
+        "total_pkg": "Total de paquetes:",
+        "total_versions": "Total de versiones:",
+        "size_repo": "Tamaño del repositorio:",
+        "btn_update": "Actualizar",
+        "column_package": "Paquete",
+        "column_version": "Versión",
+        "column_size": "Peso",
+        "see_all": "Ver Todos",
+        "pages": "Páginas"
+
+    },
+
+    "configuration": {
+        "confg_aplly": "Configuraciones aplicadas:",
+        "guide_p_1": "Esta opción está en fase de pruebas, se implemento solo para windows, la funcionalidad de linux llegará pronto. A continuación debe seleccionar a que nivel desea configurar pip y especificar la configuración (<strong>precaución</strong>, esto sobrescribirá las configuraciones previas).",
+        "guide_p_2": "Si desea eliminar una configuración seleccione el nivel y cambiela a estandar.",
+        "global": "Global",
+        "global_desc": "Configura pip globalmente creando el archivo ubicado en <strong>C:\\ProgramData\\pip\\pip.ini</strong> y le añade las lineas siguientes",
+        "user": "Usuario",
+        "user_desc": "Configura pip creando el archivo ubicado en <strong>%HOME%\\pip\\pip.ini</strong> y le añade las lineas siguientes",
+        "enviroment": "<del>Entorno virtual</del>",
+        "enviroment_desc": "Configura pip creando el archivo ubicado en <strong>%VIRTUAL_ENV%\\pip.ini</strong> debe seleccionar la ubicaion del entorno virtual y le añade las lineas siguientes",
+        "conf_type_1": "Configuración estandar",
+        "conf_type_2": "Configuración personalizada",
+        "apply": "Aplicar",
+        "cancel": "Cancelar"
+    },
+
+    "footer":{
+        "contribute": "Contribuye",
+        "github": "Github",
+        "related_links": "Enlaces relacionados",
+        "python": "Sitio de Python",
+        "pypi": "Sitio de Pypi",
+        "pip": "Sitio de Pip",
+        "documentations": "Documentaciones",
+        "python_doc": "Documentación de Python",
+        "pip_doc": "Documentación de Pip"
     }
 }

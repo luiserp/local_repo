@@ -1,7 +1,7 @@
 from flask import Flask, render_template, send_from_directory, session
 import os
 
-from repopip.util import filesize
+from repopip.util import filesize, url
 from repopip import site, simple
 from repopip.local_repo.repo import Repo
 
@@ -15,7 +15,8 @@ def create_app():
     )
 
     app.add_template_filter(filesize)
-    
+    app.add_template_filter(url)
+
     app.register_blueprint(site.bp)
     app.register_blueprint(simple.bp)
 
