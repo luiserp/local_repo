@@ -17,4 +17,3 @@ class Translator:
             code = path[-1].split('.')[0]
             with open(lang, encoding='utf-8') as f:
                 self.translations[code] = json.load(f)
-
