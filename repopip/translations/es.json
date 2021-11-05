@@ -6,6 +6,7 @@
         "packages": "Paquetes",
         "configuration" : "Configuración",
         "contact" : "Contacto",
+        "language": "Idioma",
         "index_link": { 
             "path":"site.index",
             "lang": "es"

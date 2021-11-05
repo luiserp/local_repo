@@ -6,6 +6,7 @@
         "packages": "Packages",
         "configuration" : "Configuration",
         "contact" : "Contact",
+        "language": "Language",
         "index_link": { 
             "path":"site.index"
         },
@@ -74,9 +75,9 @@
         "global": "Global",
         "global_desc": "Configure pip globally by creating the file located in <strong> C: \\ ProgramData \\ pip \\ pip.ini </strong> and add the following lines",
         "user": "User",
-        "user_desc": "Configure pip by creating the file located in <strong>% HOME% \\ pip \\ pip.ini </strong> and add the following lines",
+        "user_desc": "Configure pip by creating the file located in <strong>%HOME% \\ pip \\ pip.ini </strong> and add the following lines",
         "enviroment": "<del>Virtual environment</del>",
-        "enviroment_desc": "Configure pip by creating the file located in <strong>% VIRTUAL_ENV% \\ pip.ini </strong> you must select the location of the virtual environment and add the following lines",
+        "enviroment_desc": "Configure pip by creating the file located in <strong>%VIRTUAL_ENV% \\ pip.ini </strong> you must select the location of the virtual environment and add the following lines",
         "conf_type_1": "Standard configuration",
         "conf_type_2": "Custom configuration",
         "apply": "Apply",

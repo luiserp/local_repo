@@ -2,12 +2,20 @@
 
 <nav class="nav">
     <ul>
-        <li> <a href=" {{ index_link | url }}"> {{ home }} </a></li>
-        <li> <a href=" {{ packages_link | url }}"> {{ packages }} </a></li>
-        <li> <a href=" {{ configuration_link | url }}"> {{ configuration }} </a></li>
-        <li> <a href=" {{ contact_link | url }}"> {{ contact }} </a></li>
-        <li> <a id="english_likn">{{ english }}</a></li>
-        <li> <a id="spanish_likn">{{ spanish }}</a></li>
+        <div class="links">
+            <li> <a href=" {{ index_link | url }}"> {{ home }} </a></li>
+            <li> <a href=" {{ packages_link | url }}"> {{ packages }} </a></li>
+            <li> <a href=" {{ configuration_link | url }}"> {{ configuration }} </a></li>
+            <li> <a href=" {{ contact_link | url }}"> {{ contact }} </a></li>
+        </div>
+        <div class="lang">
+            <li> <a href=""> {{ language }} </a>
+                <ul>
+                    <li> <a id="english_likn">{{ english }}</a></li>
+                    <li> <a id="spanish_likn">{{ spanish }}</a></li>
+                </ul>
+            </li>
+        </div>
     </ul>
 </nav>
 
