@@ -1,0 +1,102 @@
+{
+    "nav":{
+        "english": "Ingles",
+        "spanish": "Español",
+        "home": "Inicio",
+        "packages": "Paquetes",
+        "configuration" : "Configuración",
+        "contact" : "Contacto",
+        "language": "Idioma",
+        "index_link": { 
+            "path":"site.index",
+            "lang": "es"
+        },
+        "packages_link": { 
+            "path":"site.packages",
+            "lang": "es"
+        },
+        "contact_link": { 
+            "path":"site.contact",
+            "lang": "es"
+        },
+        "configuration_link": { 
+            "path":"site.configuration",
+            "lang": "es"
+        },
+        "console_title": "La forma más simple de usar",
+        "console_desc": "El comando anterior es la forma mas facil y rápida de usar el repositorio local en la instalacion de paquetes, el unico requisito es descargar el paquete previamente y añadirlo al repositorio."
+    },
+
+    "index":{
+        "charact_1": "Facil de usar",
+        "charact_2": "Multiplataforma",
+        "charact_3": "Configurable",
+        "charact_4": "Trabaja offline",
+
+        "des_char_1": "Nunca ha sido mas facil tener un repositorio de paquetes en tu computadora. Esta es la forma mas sencilla y simple de hospedar tus paquetes preferidos y tenerlos disponible para trabajar.",
+        "des_char_2": "Aplicación apta para todos los sistemas operativos. El proceso de instalacion solo requiere python y algunos paquetes para ejecutarse, debido a que todo esto es multiplataforma la aplicacion hereda el mismo comportamiento.",
+        "des_char_3": "La flexibilidad en la configuración deriva de la flexibilidad del gestor de paquetes pip. En futuras versiones del proyecto planeamos implementar funcionalidades que permitan una configuración automatica.",
+        "des_char_4": "Una ves que tengas el repositorio configurado y los paquetes agregados nada te impide poder trabajar de forma offline. Si aun así necesitas de conexión a internet para trabajar usar esta app te permitira ahorar ancho de banda y datos móviles.",
+        
+        "guide_title": "Guía de uso",
+        "guide_desc": "Con esta aplicación puedes tener un repositorio local de paquetes de python. Todo lo que tienes que hacer es descargar el paquete que desees e iniciar el servidor, así ahorraras ancho de banda y datos de internet.",
+        "installation": "Instalacíon:",
+        "use": "Uso:",
+        "step_1": "Tienes que descargar el paquete del repositorio oficial <span class='code'>pip download [package_name]</span>.",
+        "step_2": "Copia el paquete a la carpeta <strong>%HOME%/.static/simple</strong>.",
+        "step_3": "Inicia el servidor <span class='code'>python -m repopip</span>. Este comando iniciara el servidor en <a href='http://127.0.0.1:5000/'>http://127.0.0.1:5000/</a>.",
+        "step_4": "Comienza a usar tu servidor. <span class='code'>pip install --index-url='http://127.0.0.1:5000/simple/' [package_name]</span>.",
+        "step_4_1": "Puedes configurar pip copiado las siguientes lineas en una de estas ubicaciones y el paso anterior seria tan simlpe como <span class='code'>pip install [package_name]</span>:",
+        "step_4_1_1": "<strong>Global:</strong> C:\\ProgramData\\pip\\pip.ini",
+        "step_4_1_2": "<strong>User:</strong> %APPDATA%\\pip\\pip.ini o con la opcion antigua %HOME%\\pip\\pip.ini",
+        "step_4_1_3": "<strong>Site:</strong> %VIRTUAL_ENV%\/pip.ini",
+        "step_5": "También se puede usar remmotamente, solo necesitas saber la dirección donde esta alojado el servidor <span class='code'>pip install --index-url=\"http://direccion_de_dominio_o_ip/simple/\" [package_name]</span> además de poderse configurar como el paso anterior",
+        "step_5_1": "En futuras versiones haremos el proceso de configuración más facil."
+
+    },
+    "contact": {
+        "contact": "Contacto",
+        "mesagge": "La aplicacion esta todavia en una fase de desarrollo, si te gusta la idea y quieres colaborar no dudes en visitar el repositorio <a href=\"https://github.com/luiserp/local_repo\">oficial</a>, hacer un fork y desatar tu imaginación."
+    },
+
+    "packages": {
+        "total_pkg": "Total de paquetes:",
+        "total_versions": "Total de versiones:",
+        "size_repo": "Tamaño del repositorio:",
+        "btn_update": "Actualizar",
+        "column_package": "Paquete",
+        "column_version": "Versión",
+        "column_size": "Peso",
+        "see_all": "Ver Todos",
+        "pages": "Páginas"
+
+    },
+
+    "configuration": {
+        "confg_aplly": "Configuraciones aplicadas:",
+        "guide_p_1": "Esta opción está en fase de pruebas, se implemento solo para windows, la funcionalidad de linux llegará pronto. A continuación debe seleccionar a que nivel desea configurar pip y especificar la configuración (<strong>precaución</strong>, esto sobrescribirá las configuraciones previas).",
+        "guide_p_2": "Si desea eliminar una configuración seleccione el nivel y cambiela a estandar.",
+        "global": "Global",
+        "global_desc": "Configura pip globalmente creando el archivo ubicado en <strong>C:\\ProgramData\\pip\\pip.ini</strong> y le añade las lineas siguientes",
+        "user": "Usuario",
+        "user_desc": "Configura pip creando el archivo ubicado en <strong>%HOME%\\pip\\pip.ini</strong> y le añade las lineas siguientes",
+        "enviroment": "<del>Entorno virtual</del>",
+        "enviroment_desc": "Configura pip creando el archivo ubicado en <strong>%VIRTUAL_ENV%\\pip.ini</strong> debe seleccionar la ubicaion del entorno virtual y le añade las lineas siguientes",
+        "conf_type_1": "Configuración estandar",
+        "conf_type_2": "Configuración personalizada",
+        "apply": "Aplicar",
+        "cancel": "Cancelar"
+    },
+
+    "footer":{
+        "contribute": "Contribuye",
+        "github": "Github",
+        "related_links": "Enlaces relacionados",
+        "python": "Sitio de Python",
+        "pypi": "Sitio de Pypi",
+        "pip": "Sitio de Pip",
+        "documentations": "Documentaciones",
+        "python_doc": "Documentación de Python",
+        "pip_doc": "Documentación de Pip"
+    }
+}

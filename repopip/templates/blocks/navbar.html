@@ -2,9 +2,32 @@
 
 <nav class="nav">
     <ul>
-        <li> <a href=" {{ url_for('site.index') }}"> Inicio </a></li>
-        <li> <a href=" {{ url_for('site.packages') }}"> Paquetes </a></li>
-        <li> <a href=" {{ url_for('site.configuracion') }}"> Configuraci&oacute;n </a></li>
-        <li> <a href=" {{ url_for('site.contacto') }}"> Contacto </a></li>
+        <div class="links">
+            <li> <a href=" {{ index_link | url }}"> {{ home }} </a></li>
+            <li> <a href=" {{ packages_link | url }}"> {{ packages }} </a></li>
+            <li> <a href=" {{ configuration_link | url }}"> {{ configuration }} </a></li>
+            <li> <a href=" {{ contact_link | url }}"> {{ contact }} </a></li>
+        </div>
+        <div class="lang">
+            <li> <a href=""> {{ language }} </a>
+                <ul>
+                    <li> <a id="english_likn">{{ english }}</a></li>
+                    <li> <a id="spanish_likn">{{ spanish }}</a></li>
+                </ul>
+            </li>
+        </div>
     </ul>
 </nav>
+
+<script>
+    let spa = document.querySelector('#spanish_likn');
+    let eng = document.querySelector('#english_likn');
+
+    let exclude = ["", "es"];
+
+    path_list = window.location.pathname.split('/').filter( p => exclude.indexOf(p) == -1)
+    path = path_list[ path_list.length - 1 ]
+
+    spa.setAttribute('href', `${window.location.origin}/es${path? '/'+path: ""}`);
+    eng.setAttribute('href', `${window.location.origin}/${path? path: ""}`);
+</script>

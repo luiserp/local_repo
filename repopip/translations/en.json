@@ -1,0 +1,98 @@
+{
+    "nav":{
+        "english": "English",
+        "spanish": "Spanish",
+        "home": "Home",
+        "packages": "Packages",
+        "configuration" : "Configuration",
+        "contact" : "Contact",
+        "language": "Language",
+        "index_link": { 
+            "path":"site.index"
+        },
+        "packages_link": { 
+            "path":"site.packages"
+        },
+        "contact_link": { 
+            "path":"site.contact"
+        },
+        "configuration_link": { 
+            "path":"site.configuration"
+        },
+        "console_title": "The simplest way to use",
+        "console_desc": "The above command is the easiest and fastest way to use the local repository when installing packages, the only requirement is to download the package previously and add it to the repository."
+    },
+
+    "index":{
+        "charact_1": "Easy to use",
+        "charact_2": "Multi platform",
+        "charact_3": "Configurable",
+        "charact_4": "Work offline",
+
+        "des_char_1": "Having a package repository on your computer has never been easier. This is the easiest and simplest way to host your preferred packages and have them available to work with.",
+        "des_char_2": "Application suitable for all operating systems. The installation process only requires python and some packages to run, since all this is cross-platform, the application inherits the same behavior.",
+        "des_char_3": "The flexibility in configuration derives from the flexibility of the pip package manager. In future versions of the project we plan to implement functionalities that allow an automatic configuration.",
+        "des_char_4": "Once you have the repository configured and the packages added, nothing prevents you from being able to work offline. If you still need an internet connection to work, using this app will allow you to save bandwidth and mobile data.",
+        
+        "guide-title": "Use guide",
+        "guide-desc": "With this application you can have a local repository of python packages. All you have to do is download the package you want and start the server, thus saving bandwidth and internet data.",
+        "installation": "Installation:",
+        "use": "Use:",
+        "step_1": "You have to download the package from the official repository <span class='code'>pip download [package_name]</span>.",
+        "step_2": "Copy the package to the folder <strong>%HOME%/.static/simple</strong>.",
+        "step_3": "Start the server <span class='code'>python -m repopip</span>. This command will start the server in <a href='http://127.0.0.1:5000/'>http://127.0.0.1:5000/</a>.",
+        "step_4": "Start using your server. <span class='code'>pip install --index-url='http://127.0.0.1:5000/simple/' [package_name]</span>.",
+        "step_4_1": "You can configure pip by copying the following lines in one of these locations and the previous step would be as simple as <span class='code'>pip install [package_name]</span>:",
+        "step_4_1_1": "<strong>Global:</strong> C:\\ProgramData\\pip\\pip.ini",
+        "step_4_1_2": "<strong>User:</strong> %APPDATA%\\pip\\pip.ini or with the old option %HOME%\\pip\\pip.ini",
+        "step_4_1_3": "<strong>Site:</strong> %VIRTUAL_ENV%\/pip.ini",
+        "step_5": "It can also be used remotely, you just need to know the address where the server is hosted <span class='code'>pip install --index-url=\"http://ip_address/simple/\" [package_name]</span> in addition to being able to configure as the previous step",
+        "step_5_1": "In future versions we will make the configuration process easier."
+
+    },
+    
+    "contact": {
+        "contact": "Contact",
+        "mesagge": "The application is still in a development phase, if you like the idea and want to collaborate, do not hesitate to visit the repository <a href=\"https://github.com/luiserp/local_repo\"> oficial </a>, fork and unleash your imagination."
+    },
+
+    "packages": {
+        "total_pkg": "Total of packages:",
+        "total_versions": "Total of versions:",
+        "size_repo": "Size of repository:",
+        "btn_update": "Update",
+        "column_package": "Package",
+        "column_version": "Version",
+        "column_size": "Size",
+        "see_all": "See all",
+        "pages": "Pages"
+    },
+
+    "configuration": {
+        "confg_aplly": "Applied settings:",
+        "guide_p_1": "This option is in the testing phase, it was implemented only for windows, the linux functionality will arrive soon. Next you must select at which level you want to configure pip and specify the configuration (<strong> caution </strong>, this will overwrite the previous configurations).        ",
+        "guide_p_2": "If you want to delete a configuration select the level and change it to standard.",
+        "global": "Global",
+        "global_desc": "Configure pip globally by creating the file located in <strong> C: \\ ProgramData \\ pip \\ pip.ini </strong> and add the following lines",
+        "user": "User",
+        "user_desc": "Configure pip by creating the file located in <strong>%HOME% \\ pip \\ pip.ini </strong> and add the following lines",
+        "enviroment": "<del>Virtual environment</del>",
+        "enviroment_desc": "Configure pip by creating the file located in <strong>%VIRTUAL_ENV% \\ pip.ini </strong> you must select the location of the virtual environment and add the following lines",
+        "conf_type_1": "Standard configuration",
+        "conf_type_2": "Custom configuration",
+        "apply": "Apply",
+        "cancel": "Cancel"
+    },
+
+    "footer":{
+        "contribute": "Contribute",
+        "github": "Github",
+        "related_links": "Related links",
+        "python": "Python site",
+        "pypi": "Pypi site",
+        "pip": "Pip site",
+        "documentations": "Documentations",
+        "python_doc": "Python documentation",
+        "pip_doc": "Pip documentation"
+    }
+}

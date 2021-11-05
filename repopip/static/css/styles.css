@@ -63,33 +63,65 @@ nav {
 
 nav ul {
     margin: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul .links{
+    display: flex;
+}
+
+nav ul .links li {
+    border-right: 1px solid #80808069;
+}
+
+nav ul .lang {
+    margin-right: 10px;
 }
 
 nav ul li {
     list-style: none;
-    display: inline-block;
     font-size: 1rem;
-    border-right: 1px solid #80808069;
+    position: relative;
 }
 
 nav ul li:hover{
     background-color: #2e6b9a;
 }
 
-nav a {
+nav ul li a {
     padding: 15px;
-    display: inline-block;
+    display: block;
     margin: auto;
     text-decoration: none;
     color: white;
 }
 
+nav ul li>ul{
+    display: none;
+}
+
+nav ul li:hover>ul{
+    padding: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    background: #3775a8;
+    justify-content: center;
+}
+
+nav ul li>ul li, nav ul li>ul li a{
+    border: none;
+    width: 100%;
+}
+
+
 .container {
     width: 85%;
     margin: auto;
 }
-
-
 
 .terminal {
     width: 95%;

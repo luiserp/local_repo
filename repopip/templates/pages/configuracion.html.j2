@@ -5,47 +5,45 @@
 
     <div class="prop">
         <div class="prop-title">
-            <h3>Exito</h3>
+            <h3></h3>
         </div>
-        <p class="prop-message">Tarea realizada OK</p>
+        <p class="prop-message"></p>
     </div>
 
     <div class="backdrop"></div>
 
     <div class="message message-y" id="configs" style="display: none;">
-        <p>Configuraciones aplicadas:</p>
-        <ul>
-            <!-- <li id="conf[0]"><strong>conf[0]</strong>: conf[1]</li> -->
-        </ul>
+        <p>{{ confg_aplly }}</p>
+        <ul> </ul>
     </div>
 
     <div class="guide">
-        <h2 class="guide-title">Configuraci&oacute;n</h2>
-        <p>Esta opci&oacute;n est&aacute; en fase de pruebas, adem&aacute; se implemento solo para windows, la funcionalidad de linux llegará pronto. A continuación debe seleccionar a que nivel desea configurar pip y especificar la configuración(<strong>precaución</strong>, esto sobrescribirá las configuraciones previas).</p>
-        <p>Si desea eliminar una configuración seleccione el nivel y cambiela a estandar.</p>
+        <h2 class="guide-title">{{ configuration }}</h2>
+        <p>{{ guide_p_1 }}</p>
+        <p>{{ guide_p_2 }}</p>
     </div>
 
     <div class="conf-blocks">
         <div class="block" id="Global">
-            <h3 class="block-title">Global</h3>
-            <p class="conf-description"> Configura pip globalmente creando el archivo ubicado en <strong>C:\ProgramData\pip\pip.ini</strong> y le añade las lineas siguientes</p>
+            <h3 class="block-title">{{ global }}</h3>
+            <p class="conf-description"> {{ global_desc }}</p>
         </div>
         <div class="block" id="User">
-            <h3 class="block-title">Usuario</h3>
-            <p class="conf-description"> Configura pip creando el archivo ubicado en <strong>%HOME%\pip\pip.ini</strong> y le añade las lineas siguientes</p>
+            <h3 class="block-title">{{ user }}</h3>
+            <p class="conf-description"> {{ user_desc }}</p>
         </div>
         <div class="block" id="Env">
-            <h3 class="block-title">Entorno virtual</h3>
-            <p class="conf-description"> Configura pip creando el archivo ubicado en <strong>%VIRTUAL_ENV%\pip.ini</strong> debe seleccionar la ubicaion del entorno virtual y le añade las lineas siguientes</p>
+            <h3 class="block-title">{{ enviroment }}</h3>
+            <p class="conf-description"> {{ enviroment_desc }}</p>
         </div>
     </div>
 
     <div class="edit-config">
         <div class="select" id="standar">
-            <p>Configuraci&oacute;n estandar</p>
+            <p>{{ conf_type_1 }}</p>
         </div>
         <div class="select" id="personalised">
-            <p>Configuraci&oacute;n personalizada</p>
+            <p>{{ conf_type_2 }}</p>
             <form id="conf-form" class="collapse">
                 <textarea name="conf" rows="6" spellcheck="false">[global] 
 index-url=http://127.0.0.1:5000/simple/</textarea>
@@ -56,8 +54,8 @@ index-url=http://127.0.0.1:5000/simple/</textarea>
 </div>
 
 <div class="conf-actions">
-    <button class="btn btn-blue" id="Apply">Aplicar</button>
-    <button class="btn btn-red" id="Cancel">Cancelar</button>
+    <button class="btn btn-blue" id="Apply">{{ apply }}</button>
+    <button class="btn btn-red" id="Cancel">{{ cancel }}</button>
 </div>
 
 <script src="{{ url_for('static', filename='js/script.js') }}"></script>
