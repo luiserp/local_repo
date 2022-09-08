@@ -27,3 +27,7 @@ Con esta aplicación puedes tener un repositorio local de paquetes de python. To
 
 - También se puede usar remmotamente, solo necesitas saber la dirección donde esta alojado el servidor `pip install --index-url="http://direccion_de_dominio_o_ip/simple/" [package_name]` además de poderse configurar como el paso anterior
     - En futuras versiones haremos el proceso de configuración más facil.
+
+
+### TODO:
+   Verificar que los paquetes que no se descarguen completo no sean agregados al repositorio y no corrompan los ya existentes.

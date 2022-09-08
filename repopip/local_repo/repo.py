@@ -1,3 +1,4 @@
+from typing import Dict, List
 from . import SIMPLE_PATH
 import os
 
@@ -5,7 +6,7 @@ class Package:
 
     def __init__( self, name, versions = []):
         self.name = name
-        self.versions: Version = versions
+        self.versions: List[Version] = versions
 
     def __str__(self):
         return f'{self.name} - {self.versions}'
@@ -22,7 +23,7 @@ class Version():
 class Repo(object):
 
     __instance = None
-    packages: {str: Package} = {}
+    packages: Dict[str, Package] = {}
     size: int = 0
     total_versions: int = 0
 
