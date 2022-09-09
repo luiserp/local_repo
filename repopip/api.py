@@ -25,7 +25,7 @@ def main():
     log = logging.getLogger('werkzeug')
     log.disabled = True 
     try:
-        srv = make_server("127.0.0.1", 5000, app, threaded=True)
+        srv = make_server("0.0.0.0", 5000, app, threaded=True)
         print("Server on http://127.0.0.1:5000")
         srv.serve_forever()
     except KeyboardInterrupt:

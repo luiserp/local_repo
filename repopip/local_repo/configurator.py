@@ -5,12 +5,14 @@ import platform
 
 OS_DIC = {
     'Windows': {
-        'Global': ['C:\\', 'ProgramData', 'pip'],
-        'User': [ os.environ.get('HOMEPATH'), 'pip'],
+        'Global': Path("C:").joinpath('/','ProgramData', 'pip'),
+        'User': Path().home().joinpath("pip"),
         'File': 'pip.ini'
     },
     'Linux': {
-        # TODO
+        'Global': Path("/").joinpath('etc'),
+        'User': Path().home().joinpath(".config", "pip"),
+        'File': 'pip.conf'
     }
 }
 
@@ -23,11 +25,12 @@ class Configurator:
         self.level = level
         self.configuration = configuration 
         if(level != ''):
-            self.PATH = Path(*self.OS.get(level)).absolute()            
+            self.PATH : Path = self.OS.get(level)            
             try:
-                os.makedirs(self.PATH)
+                if(not self.PATH.exists()):
+                    os.makedirs(self.PATH)
             except OSError:
-                pass
+                print(f"CONFIG ROUTE NOT WIRKING {self.PATH}")
 
         # print(self.PATH)
 
@@ -45,7 +48,7 @@ class Configurator:
     def searchConfigs(self):
         configs = []
         for l, p in self.OS.items():
-            path = Path(*p)
+            path = Path(p)
             if( path.joinpath(self.OS.get('File')).exists() and os.path.getsize(path.joinpath(self.OS.get('File'))) != 0 ):
                 configs.append((l, path.__str__()))
         return configs

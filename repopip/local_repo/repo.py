@@ -1,4 +1,4 @@
-from typing import Dict, List
+from typing import List
 from . import SIMPLE_PATH
 import os
 
@@ -23,7 +23,7 @@ class Version():
 class Repo(object):
 
     __instance = None
-    packages: Dict[str, Package] = {}
+    packages = { str: Package }
     size: int = 0
     total_versions: int = 0
 
