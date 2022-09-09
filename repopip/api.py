@@ -3,6 +3,7 @@ import webbrowser
 from flask import Flask
 from repopip.util import filesize, url
 from repopip import site, simple
+from repopip.local_repo.repo import Repo
 from werkzeug.serving import make_server
 
 def create_app():
@@ -11,12 +12,13 @@ def create_app():
         SECRET_KEY='dev',
         # DATABASE=os.path.join(app.instance_path, 'repopip.sqlite'),
     )
+    repo = Repo()
 
     app.add_template_filter(filesize)
     app.add_template_filter(url)
 
     app.register_blueprint(site.bp)
-    app.register_blueprint(simple.bp)
+    app.register_blueprint(simple.create_bp(repo))
 
     return app
 

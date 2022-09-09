@@ -1,49 +1,42 @@
+from pathlib import Path
 from typing import List
 from . import SIMPLE_PATH
 import os
 
+class Version():
+
+    def __init__(self, fullname: str, v: str, size: int):
+        self.fullname = fullname
+        self.v = v
+        self.size = size
+
 class Package:
 
-    def __init__( self, name, versions = []):
+    def __init__( self, name: str, versions: List[Version] = []):
         self.name = name
         self.versions: List[Version] = versions
 
     def __str__(self):
         return f'{self.name} - {self.versions}'
 
-
-class Version():
-
-    def __init__(self, fullname, v, size):
-        self.fullname = fullname
-        self.v = v
-        self.size = size
-
-
 class Repo(object):
 
-    __instance = None
     packages = { str: Package }
     size: int = 0
     total_versions: int = 0
 
     def __init__(self):
         self.loadPackages()
-    
-    def __new__(cls):
-        if Repo.__instance is None:
-            Repo.__instance = object.__new__(cls)
-        return Repo.__instance
 
-    def getName(self, pkg):
+    def getName(self, pkg: Path):
         return pkg.name.split('-')[0].lower().replace('.', '-')
 
-    def toVersion(self, pkg):
+    def toVersion(self, pkg: Path):
         version = pkg.name.split('-')[1].replace('.tar.gz', '').replace('.whel', '')
         return Version(pkg.name, version, os.path.getsize(pkg))
 
     def loadPackages(self):
-        self.packages = {}
+        self.packages = { str: Package }
         self.size = 0
         self.total_versions = 0
 
@@ -58,15 +51,17 @@ class Repo(object):
                 # if( version.v not in [v.v for v in self.packages[name].versions] ):
                 self.size += version.size
                 self.total_versions += 1
-                self.packages[name].versions.append(version)
+                self.packages.get(name).versions.append(version)
 
-    def getPackage(self, name):
+    def getPackages(self, name: str) -> List[Version]:
         try:
             if ( name not in self.packages.keys() ):
                 name = name.replace(".","-")
                 if ( name not in self.packages.keys() ):
                     name = name.replace("-","_")
-
-            return self.packages[name].versions
+            if p := self.packages.get(name):
+                return p.versions
+            else:
+                return []
         except:
             return []

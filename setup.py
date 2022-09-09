@@ -22,7 +22,8 @@ setup(
     install_requires=[
         'flask',
         'hurry.filesize',
-        'python-dotenv',
-        'pip'
+        'pip',
+        'requests',
+        'beautifulsoup4'
     ],
 )
