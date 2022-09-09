@@ -21,7 +21,7 @@ def get_package(package):
 @bp.route('/simple/download/<package>')
 def download_package(package): 
     href = request.args.get("href")
-    return Response(download(href, str(Path(SIMPLE_PATH).joinpath(package))))
+    return Response(download(href, package))
     
 
 @bp.route('/simple/<package>/') # Renders the package template view

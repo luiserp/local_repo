@@ -1,3 +1,4 @@
+from pathlib import Path
 from typing import List
 from flask import url_for
 from hurry.filesize import size, alternative
@@ -6,7 +7,8 @@ import sys
 from bs4 import BeautifulSoup
 from http.client import HTTPConnection
 from threading import Thread
-from repopip.local_repo import DEFAULT_INDEX_URL
+from shutil import move
+from repopip.local_repo import DEFAULT_INDEX_URL, SIMPLE_PATH, TEMP_PATH
 
 # Flag for inet connection
 connection = False
@@ -34,7 +36,8 @@ def test_inet_connection():
         c.close()
 
 # Download a file from a link and returns the progress step by step(generator)
-def download(href, file):
+def download(href, file_name):
+    file = Path(TEMP_PATH).joinpath(file_name)
     with open(file, "wb") as f:
         print("\nDownloading %s" % file)
         response = requests.get(href, stream=True, timeout=2)
@@ -52,6 +55,9 @@ def download(href, file):
                 sys.stdout.flush()
                 f.write(data)
                 yield data
+
+    # When download is completed
+    move(file, Path(SIMPLE_PATH))
 
 # This function scraps pypi.org if there is connection and get the versions of the packages that aren't in the local repo
 def scrap_pypi(package, exclude: List) -> List:    
